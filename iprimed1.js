@@ -174,16 +174,21 @@ console.log("Modulus by zero:", num1 % 0); // ? Output: NaN
 let a1 = 10;
 a1 += 5; // a1 = a1 + 5
 console.log("After += operator:", a1); // ? Output: 15
+
 a1 -= 3; // a1 = a1 - 3
-console.log("After -= operator:", a1);
+console.log("After -= operator:", a1); // ? Output: 12
+
 a1 *= 2; // a1 = a1 * 2
-console.log("After *= operator:", a1);
+console.log("After *= operator:", a1); // ? Output: 24
+
 a1 /= 4; // a1 = a1 / 4
-console.log("After /= operator:", a1);
+console.log("After /= operator:", a1); // ? Output: 6
+
 a1 %= 3; // a1 = a1 % 3
-console.log("After %= operator:", a1);
+console.log("After %= operator:", a1); // ? Output: 0
+
 a1 **= 2; // a1 = a1 ** 2
-console.log("After **= operator:", a1);
+console.log("After **= operator:", a1); // ? Output: 0 (because 0 raised to any power is still 0)
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -284,10 +289,10 @@ console.log("After decrement, num5:", num5); // ? Output: 10
 // These operators compare two values and return a boolean result.
 
 let num6 = 15;
-console.log("Greater than (>):", num6 > 10);
-console.log("Less than (<):", num6 < 20);
-console.log("Greater than or equal to (>=):", num6 >= 15);
-console.log("Less than or equal to (<=):", num6 <= 15);
+console.log("Greater than (>):", num6 > 10); // ? Output: true
+console.log("Less than (<):", num6 < 20); // ? Output: true
+console.log("Greater than or equal to (>=):", num6 >= 15); // ? Output: true
+console.log("Less than or equal to (<=):", num6 <= 15); // ? Output: true
 
 // ! ------------------------------------------------------------------------------------------------
 
