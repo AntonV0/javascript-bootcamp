@@ -45,3 +45,20 @@ Client-side JavaScript refers to JavaScript code that is executed in the user's 
 
 ## Server-side JavaScript
 Server-side JavaScript refers to JavaScript code that is executed on the server rather than in the user's web browser. It is commonly used for building web applications and APIs using frameworks like Node.js. Server-side JavaScript allows developers to handle HTTP requests, interact with databases, and perform server-side logic. For example, you can use server-side JavaScript to create a RESTful API that allows clients to retrieve and manipulate data stored in a database, or to handle user authentication and authorization for a web application.
+
+## JavaScript variables
+### In JavaScript, variables are used to store data values. There are three ways to declare variables in JavaScript: `var`, `let`, and `const`.
+- `var`: This is the traditional way to declare variables in JavaScript. Variables declared with `var` are function-scoped, meaning they are accessible within the function they are declared in. They can also be re-declared and updated within the same scope.
+- `let`: This is a newer way to declare variables in JavaScript. Variables declared with `let` are block-scoped, meaning they are only accessible within the block they are declared in (e.g., within a loop or an if statement). They can be updated but cannot be re-declared within the same scope.
+- `const`: This is used to declare constants in JavaScript. Variables declared with `const` are block-scoped and cannot be updated or re-declared within the same scope. They must be initialised with a value at the time of declaration.
+
+### JavaScript variable names must follow certain rules:
+- They must begin with a letter, underscore (_), or dollar sign ($).
+- They can contain letters, digits, underscores, or dollar signs.
+- They cannot be reserved keywords (e.g., `var`, `let`, `const`, `if`, `else`, etc.).
+- They are case-sensitive (e.g., `myVariable` and `myvariable` are different variables).
+- They should be descriptive and meaningful to improve code readability (e.g., `firstName` instead of `x`).
+
+## DOM (Document Object Model)
+The Document Object Model (DOM) is a programming interface for web documents. It represents the structure of an HTML document as a tree of objects, where each object corresponds to an element in the document. The DOM allows developers to manipulate the content, structure, and style of a web page using JavaScript. For example, you can use the DOM to change the text of a heading, add new elements to a list, or modify the attributes of an image. The DOM provides methods and properties that allow you to access and modify elements in the document, making it possible to create dynamic and interactive web pages.
+
