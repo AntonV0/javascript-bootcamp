@@ -150,6 +150,7 @@ console.log("y:", y); // ? Output: y: 10
 // ! ------------------------------------------------------------------------------------------------
 
 // ? Arithmetic Operators:
+// These operators perform mathematical operations on operands.
 
 let num1 = 10;
 let num2 = 5;
@@ -168,6 +169,7 @@ console.log("Modulus by zero:", num1 % 0); // ? Output: NaN
 // ? ------------------------------------------------------------------------------------------------
 
 // ? Assignment Operators:
+// These operators assign values to variables.
 
 let a1 = 10;
 a1 += 5; // a1 = a1 + 5
@@ -186,6 +188,7 @@ console.log("After **= operator:", a1);
 // ? ------------------------------------------------------------------------------------------------
 
 // ? Comparison Operators:
+// These operators compare two values and return a boolean result.
 
 let num3 = 10;
 let num4 = 20;
@@ -201,6 +204,8 @@ console.log("Less than or equal to (<=):", num3 <= num4); // ? Output: true
 // ? ------------------------------------------------------------------------------------------------
 
 // ? Logical Operators:
+// These operators are used to combine multiple boolean expressions and return a boolean result.
+
 let bool1 = true;
 let bool2 = false;
 console.log("Logical AND (&&):", bool1 && bool2); // ? Output: false
@@ -211,6 +216,8 @@ console.log("Logical NOT (!):", !bool2); // ? Output: true
 // ? ------------------------------------------------------------------------------------------------
 
 // ? Type Operators:
+// The typeof operator returns a string indicating the type of the operand.
+
 console.log("Type of num1:", typeof num1); // ? Output: number
 console.log("Type of bool1:", typeof bool1); // ? Output: boolean
 console.log("Type of str:", typeof str); // ? Output: object (because str is a String object)
@@ -218,10 +225,69 @@ console.log("Type of str:", typeof str); // ? Output: object (because str is a S
 // ? ------------------------------------------------------------------------------------------------
 
 // ? instanceof operator:
+// The instanceof operator checks if an object is an instance of a specific constructor or class.
+
 console.log("Is num an instance of Number?", num instanceof Number); // ? Output: true
 console.log("Is str an instance of String?", str instanceof String); // ? Output: true
 console.log("Is num1 an instance of Number?", num1 instanceof Number); 
 // ? Output: false (because num1 is a primitive number, not a Number object)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Ternary Operator:
+// The ternary operator is a shorthand for an if-else statement. It takes three operands: a condition,
+// an expression to execute if the condition is true, and an expression to execute if the condition 
+// is false.
+
+let age = 18;
+let canVote = (age >= 18) ? "Yes" : "No";
+console.log("Can vote:", canVote); // ? Output: Yes
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? typeof operator:
+// The typeof operator returns a string indicating the type of the operand.
+
+console.log("Type of age:", typeof age); // ? Output: number
+console.log("Type of canVote:", typeof canVote); // ? Output: string
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Bitwise Operators:
+// These operators perform bitwise operations on binary representations of numbers.
+
+let bit1 = 5; // In binary: 0101
+let bit2 = 3; // In binary: 0011
+console.log("Bitwise AND (&):", bit1 & bit2); // ? Output: 1 (In binary: 0001)
+console.log("Bitwise OR (|):", bit1 | bit2); // ? Output: 7 (In binary: 0111)
+console.log("Bitwise XOR (^):", bit1 ^ bit2); // ? Output: 6 (In binary: 0110)
+console.log("Bitwise NOT (~):", ~bit1); // ? Output: -6 (In binary: 1010)
+console.log("Left Shift (<<):", bit1 << 1); // ? Output: 10 (In binary: 1010)
+console.log("Right Shift (>>):", bit1 >> 1); // ? Output: 2 (In binary: 0010)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Unary Operators:
+// These operators operate on a single operand and return a value.
+
+let num5 = 10;
+console.log("Unary plus (+):", +num5); // ? Output: 10
+console.log("Unary minus (-):", -num5); // ? Output: -10
+console.log("Increment (num5++):", num5++); // ? Output: 10 (num5 becomes 11 after this line)
+console.log("After increment, num5:", num5); // ? Output: 11
+console.log("Decrement (num5--):", num5--); // ? Output: 11 (num5 becomes 10 after this line)
+console.log("After decrement, num5:", num5); // ? Output: 10  
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Relational Operators:
+// These operators compare two values and return a boolean result.
+
+let num6 = 15;
+console.log("Greater than (>):", num6 > 10);
+console.log("Less than (<):", num6 < 20);
+console.log("Greater than or equal to (>=):", num6 >= 15);
+console.log("Less than or equal to (<=):", num6 <= 15);
 
 // ! ------------------------------------------------------------------------------------------------
 
