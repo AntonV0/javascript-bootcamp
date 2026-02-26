@@ -378,3 +378,453 @@ console.log("Result of (10 + 5) * 2:", result2);
 
 // 6. Comments: Text that is ignored by the JavaScript engine
 // (e.g., // This is a single-line comment, /* This is a multi-line comment */).
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT DATA TYPES:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Built-in data types include:
+// 1. Number: Represents numeric values (e.g., 42, 3.14).
+// a = 3.14; (floating-point number literal) and a = 42; (integer literal)
+
+// 2. String: Represents sequences of characters (e.g., "Hello, World!").
+// a = "Hello, World!"; (string literal) and a = 'Hello, World!'; (also a string literal)
+
+// 3. Boolean: Represents logical values (true or false).
+// a = true; (boolean literal) and a = false; (also a boolean literal)
+
+// 4. Null: Represents the intentional absence of any object value (null).
+// a = null; (null literal) is used to indicate that a variable has no value or is empty.
+
+// 5. Undefined: Represents a variable that has been declared but not assigned a value (undefined).
+// a = undefined; (undefined literal)
+
+// 6. Symbol: Represents a unique identifier (e.g., Symbol('description')).
+// a = Symbol('description'); creates a new symbol with the description 'description'.
+
+// 7. BigInt: Represents integers with arbitrary precision (e.g., 9007199254740991n).
+// a = BigInt(9007199254740991); (BigInt literal)
+
+// 8. NaN: Represents a value that is "Not-a-Number" (e.g., 0/0).
+// a = NaN; (Not-a-Number literal)
+
+// 9. Infinity: Represents positive infinity (e.g., 1/0) and negative infinity (e.g., -1/0).
+// a = Infinity; (Positive infinity)
+// a = -Infinity; (Negative infinity)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Built-in object types include:
+// 1. Object: Represents a collection of key-value pairs (e.g., { name: "Alice", age: 30 }).
+
+// 2. Array: Represents an ordered list of values (e.g., [1, 2, 3, 4, 5]).
+// 3. Function: Represents a reusable block of code that performs a specific task 
+//              (e.g., function greet() { console.log("Hello!"); }).
+// 4. Date: Represents a specific point in time (e.g., new Date()).
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Primitive types are immutable and are stored directly in the variable, while object types are 
+// ? mutable and are stored as references in the variable.
+
+// For example, Symbols are unique and immutable primitive values, while objects can have properties 
+// that can be changed after they are created.
+let sym1 = Symbol('description');
+let sym2 = Symbol('description');
+console.log(sym1 === sym2); // ? Output: false (because each Symbol is unique)
+
+let obj1 = { name: "Alice" };
+let obj2 = { name: "Alice" };
+console.log(obj1 === obj2); // ? Output: false (because obj1 and obj2 are different objects in memory)
+
+// Example showing mutability of objects:
+let person1 = { name: "Bob", age: 25 };
+console.log("Before mutation:", person1); // ? Output: { name: 'Bob', age: 25 }
+person1.age = 26; // Mutating the age property of person1
+console.log("After mutation:", person1); // ? Output: { name: 'Bob', age: 26 }
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? By default, all JavaScript objects inherit from the Object prototype, which provides common 
+// ? methods and properties that can be used on all objects. 
+
+// For example, the toString() method is available on all objects and can be used to convert
+// an object to a string representation. 
+
+// JavaScript provides built-in constructors for creating specific types of objects, 
+// such as Object(), Array(), Function(), and Date(). 
+// You can create instances of these object types with specific properties and methods.
+
+// For example, you can create a new object using the Object constructor like this: 
+let obj = new Object(); 
+// or create an array using the Array constructor like this: 
+let arr = new Array(1, 2, 3);
+
+// ? Using isArray() method to check if a variable is an array:
+console.log("Is arr an array?", Array.isArray(arr)); // ? Output: true
+
+// ? Using instanceof operator to check if an object is an instance of a specific constructor:
+console.log("Is obj an instance of Object?", obj instanceof Object); // ? Output: true
+console.log("Is arr an instance of Array?", arr instanceof Array); // ? Output: true
+
+// ? Example of an object literal:
+const person = { first_name: "John", last_name: "Doe" };
+console.log("Type of person:", typeof person); // ? Output: object
+console.log("Is person an instance of Object?", person instanceof Object); // ? Output: true
+
+// ? Example of creating an object using the Object constructor with properties:
+const cars = new Object();
+cars.brand = "Toyota"; // .brand is a property of the cars object
+cars.model = "Corolla";
+cars.price = 20000;
+console.log("Car details:", cars); // ? Output: { brand: 'Toyota', model: 'Corolla', price: 20000 }
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT FORMATTING:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Template literals (introduced in ES6) allow for easier string formatting and multi-line strings.
+let name1 = "Alice";
+let age1 = 30;
+let greeting = `Hello, my name is ${name1} and I am ${age1} years old.`;
+console.log(greeting); // ? Output: Hello, my name is Alice and I am 30 years old.
+
+// Template literals use backticks (`) instead of ' or " quotes, and expressions can be embedded
+// inside ${} placeholders.
+
+// ? Number formatting can be done using the toFixed() method, which formats a number to a 
+// ? specified number of decimal places.
+let num7 = 3.14159;
+console.log("Formatted number (2 decimal places):", num7.toFixed(2)); // ? Output: 3.14
+
+// ? Date formatting can be done using the toLocaleDateString() method, which formats a date 
+// ? according to the locale and options provided.
+let date = new Date();
+console.log("Formatted date (US locale):", date.toLocaleDateString('en-US')); // ? Output: MM/DD/YYYY
+console.log("Formatted date (UK locale):", date.toLocaleDateString('en-GB')); // ? Output: DD/MM/YYYY
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT TYPE CASTING:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Type casting is the process of converting a value from one type to another. In JavaScript, type 
+// ? casting can be done explicitly using built-in functions or implicitly by the JavaScript engine.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Explicit type casting can be done using functions like Number(), String(), Boolean(), etc.
+
+let strNum = "123";
+let num8 = Number(strNum);
+
+console.log("Explicit type casting (String to Number):", num8); // ? Output: 123
+console.log("Type of num8:", typeof num8); // ? Output: number
+
+// Explicit type casting can use the String() function to convert a number to a string:
+let num9 = 456;
+let str9 = String(num9);
+console.log("Explicit type casting (Number to String):", str9); // ? Output: "456"
+
+// Using parseInt() to convert a string to an integer:
+let strInt = "789abc"; // parseInt will parse the number until it encounters a non-numeric character
+let intNum = parseInt(strInt);
+console.log("Explicit type casting (String to Integer):", intNum); // ? Output: 789
+
+// Using parseFloat() to convert a string to a floating-point number:
+let strFloat = "3.14xyz"; // parseFloat will parse the number until it encounters a non-numeric char
+let floatNum = parseFloat(strFloat);
+console.log("Explicit type casting (String to Float):", floatNum); // ? Output: 3.14
+
+// Using Boolean() to convert a value to a boolean:
+console.log("Explicit type casting (String to Boolean):", Boolean("Hello")); // ? Output: true
+console.log("Explicit type casting (Empty String to Boolean):", Boolean("")); // ? Output: false
+console.log("Explicit type casting (Number to Boolean):", Boolean(0)); // ? Output: false
+console.log("Explicit type casting (Non-zero Number to Boolean):", Boolean(42)); // ? Output: true
+
+// Converting string to an array using Array.from():
+let strArray = "Hello";
+let arrFromStr = Array.from(strArray);
+console.log("Explicit type casting (String to Array):", arrFromStr); 
+// ? Output: ['H', 'e', 'l', 'l', 'o']
+
+// Converting an array to a string using join():
+let arr1 = ['H', 'e', 'l', 'l', 'o'];
+let strFromArr = arr1.join('');
+console.log("Explicit type casting (Array to String):", strFromArr); // ? Output: "Hello"
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Implicit type casting occurs when JavaScript automatically converts values to the expected type
+// ? based on the context of the operation. 
+
+// For example, when using the + operator with a string and a number, JavaScript will convert the
+// number to a string and concatenate the values.
+
+let str1 = "The number is: ";
+let num10 = 42;
+let result3 = str1 + num10; // Implicit type casting (Number to String)
+console.log("Implicit type casting (String + Number):", result3); // ? Output: The number is: 42
+console.log("Type of result3:", typeof result3); // ? Output: string
+
+// Another example of implicit type casting is when using the == operator, which performs type
+// coercion before comparing values. For example:
+
+let num11 = 5;
+let str2 = "5";
+
+console.log("Using == operator (with type coercion):", num11 == str2); 
+// ? Output: true (because the string "5" is coerced to the number 5 before comparison)
+
+console.log("Using === operator (strict equality):", num11 === str2); 
+// ? Output: false (because the types are different and no coercion occurs)
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT CONDITIONAL STATEMENTS:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Conditional statements allow you to execute different code blocks based on certain conditions.
+// ? The most common conditional statements in JavaScript are if, else if, else, and switch.
+
+// The ternary operator is also a conditional operator that allows you to write a simple if-else 
+// statement in a single line.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? if, else, and else if statements:
+
+// The if statement executes a block of code if a specified condition is true.
+let num12 = 10;
+if (num12 > 5) {
+    console.log("num12 is greater than 5"); // ? Output: num12 is greater than 5
+}
+
+// The else statement executes a block of code if the condition in the if statement is false.
+let num13 = 3;
+if (num13 > 5) {
+    console.log("num13 is greater than 5");
+} else {
+    console.log("num13 is not greater than 5"); // ? Output: num13 is not greater than 5
+}
+
+// The else if statement allows you to check multiple conditions.
+let num14 = 5;
+if (num14 > 5) {
+    console.log("num14 is greater than 5");
+} else if (num14 === 5) {
+    console.log("num14 is equal to 5"); // ? Output: num14 is equal to 5
+} else {
+    console.log("num14 is less than 5"); // ? Output: num14 is less than 5
+}
+
+// ? Example: Finding out if a triangle is equilateral, isosceles, or scalene based on angles
+let angle1 = 60;
+let angle2 = 60;
+let angle3 = 60;
+
+if (angle1 === angle2 && angle2 === angle3) {
+    // you cant do angle1===angle2===angle3 because it will be evaluated as (angle1===angle2)===angle3,
+    // which will return a boolean valueand then compare that boolean value to angle3, which is 
+    // not the intended logic.
+    console.log("The triangle is equilateral");
+} else if (angle1 === angle2 || angle2 === angle3 || angle1 === angle3) {
+    console.log("The triangle is isosceles");
+} else {
+    console.log("The triangle is scalene");
+}
+
+// ? Output: The triangle is equilateral
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? switch statement:
+
+// The switch statement allows you to execute different code blocks based on the value of a variable.
+let day = "Monday";
+switch (day) { // Evaluate the expression (day) and compare it to the case labels.
+    case "Monday": // case label for "Monday"
+        console.log("Today is Monday"); 
+        break; // Exit if this case is executed to prevent fall-through to the next cases.
+    case "Tuesday":
+        console.log("Today is Tuesday");
+        break;
+    case "Wednesday":
+        console.log("Today is Wednesday");
+        break;
+    case "Thursday":
+        console.log("Today is Thursday");
+        break;
+    case "Friday":
+        console.log("Today is Friday");
+        break;
+    case "Saturday":
+        console.log("Today is Saturday");
+        break;
+    case "Sunday":
+        console.log("Today is Sunday");
+        break;
+    default: // The default case is executed if none of the above cases match the value of day.
+        console.log("Invalid day");
+}   
+
+// ? Output: Today is Monday
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT CONTROL STRUCTURES:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Control structures allow you to control the flow of your program based on certain conditions or
+// ? to repeat a block of code multiple times. The most common control structures in JavaScript are 
+// ? loops (for, while, do-while) and the ternary operator.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? for loop:
+
+// The for loop is used to repeat a block of code a specific number of times. It consists of three 
+// parts: the initialisation, the condition, and the increment/decrement.
+
+for (let i = 0; i < 5; i++) { // Initialisation: let i = 0; Condition: i < 5; Increment: i++
+    console.log("Iteration:", i);
+}
+
+// ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? for...in loop:
+// The for...in loop is used to iterate over the properties of an object. It provides a simpler 
+// syntax for iterating over object properties.
+
+const person2 = { name: "Alice", age: 30, city: "New York" };
+for (let key in person2) { // key will take the value of each property name in person2
+    console.log(`${key}: ${person2[key]}`); // Access the value of the property using person2[key]
+}
+// ? Output:
+// name: Alice
+// age: 30
+// city: New York
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? for...of loop:
+// The for...of loop is used to iterate over iterable objects (like arrays, strings, etc.) and 
+// provides a simpler syntax for iterating over values.
+
+// ? for...of loop with an array:
+const arr2 = [10, 20, 30, 40, 50];
+for (let value of arr2) { // value will take the value of each element in arr2
+    console.log("Value:", value);
+}
+// ? Output: Value: 10, Value: 20, Value: 30, Value: 40, Value: 50
+
+// ? for...of loop with a string:
+const str3 = "Hello";
+for (let char of str3) { // char will take the value of each character in str3
+    console.log("Character:", char);
+}
+// ? Output: Character: H, Character: e, Character: l, Character: l, Character: o
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? while loop:
+
+// The while loop is used to repeat a block of code as long as a specified condition is true.
+let j = 0;
+while (j < 5) { // Condition: j < 5
+    console.log("Iteration:", j);
+    j++; // Increment: j++
+}
+// ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? do-while loop:
+// The do-while loop is similar to the while loop, but it guarantees that the block of code will be
+// executed at least once, even if the condition is false.
+
+let k = 0;
+do {
+    console.log("Iteration:", k);
+    k++; // Increment: k++
+} while (k < 5);
+// ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4
+
+// Example of do-while loop where the condition is initially false:
+let m = 10;
+do {
+    console.log("This will be printed at least once, even though the condition is false.");
+    m++;
+} while (m < 10);
+// ? Output: This will be printed at least once, even though the condition is false.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? To control the flow of your program, you can use break and continue statements. 
+// The break statement is used to exit a loop or switch statement, while the continue statement is 
+// used to skip the current iteration of a loop and move to the next iteration.
+
+// ? Example of break statement:
+for (let n = 0; n < 10; n++) {
+    if (n === 5) {  // When n is equal to 5, the break statement will exit the loop.
+        break;
+    }
+    console.log("Iteration:", n);
+}
+
+// ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4 
+// Loop will exit when n is 5, so it will not print Iteration: 5 or any subsequent iterations.
+
+// ? Example of continue statement:
+for (let p = 0; p < 10; p++) {
+    if (p % 2 === 0) { // When p is an even number, the continue statement will skip the rest 
+                       // of the loop body and move to the next iteration.
+        continue;
+    }
+    console.log("Iteration:", p);
+}
+
+// ? Output: Iteration: 1, Iteration: 3, Iteration: 5, Iteration: 7, Iteration: 9
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Infinite loops:
+
+for (;;) { // This creates an infinite loop because there is no condition to stop it.
+    console.log("This will run forever!");
+    break; // Prevent the infinite loop.
+}
+// ? Output: This will run forever!
+
+// ? Another example of an infinite loop using while:
+while (true) { // This creates an infinite loop because the condition is always true.
+    console.log("This will also run forever!");
+    break; // Prevent the infinite loop.
+}
+// ? Output: This will also run forever!
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example of a for loop with multiple initialisation and increment expressions:
+for (let i = 0, j = 0; i <= 6 && j <= 10; i++, j++) {
+    console.log(`i: ${i}, j: ${j}`);
+}
+
+// ? Output:
+// i: 0, j: 0
+// i: 1, j: 1
+// i: 2, j: 2
+// i: 3, j: 3
+// i: 4, j: 4
+// i: 5, j: 5
+// i: 6, j: 6
+
