@@ -244,9 +244,33 @@ console.log("Is num1 an instance of Number?", num1 instanceof Number);
 // an expression to execute if the condition is true, and an expression to execute if the condition 
 // is false.
 
+// ? Example 1: Check if a person can vote based on their age:
 let age = 18;
+// The ? is the operator, and the : separates the true and false expressions.
 let canVote = (age >= 18) ? "Yes" : "No";
 console.log("Can vote:", canVote); // ? Output: Yes
+
+// ? Using an if-else statement to achieve the same result:
+let canVote2;
+if (age >= 18) {
+    canVote2 = "Yes";
+} else {
+    canVote2 = "No";
+}
+console.log("Can vote (using if-else):", canVote2); // ? Output: Yes
+
+// ? Example 2: Check if a number is even or odd:
+let number = 7;
+// The condition checks if the number is divisible by 2 (i.e., even).
+let odd_or_even = (number % 2 === 0) ? "Even" : "Odd";
+console.log("The number is:", odd_or_even); // ? Output: Odd
+
+// ? Example 3: Finding which number is greater:
+let numA = 15;
+let numB = 20;
+// The condition checks if numA is greater than numB. If true, it returns numA; else, it returns numB.
+let greater = (numA > numB) ? numA : numB;
+console.log("Greater number is:", greater); // ? Output: 20
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -269,6 +293,22 @@ console.log("Bitwise XOR (^):", bit1 ^ bit2); // ? Output: 6 (In binary: 0110)
 console.log("Bitwise NOT (~):", ~bit1); // ? Output: -6 (In binary: 1010)
 console.log("Left Shift (<<):", bit1 << 1); // ? Output: 10 (In binary: 1010)
 console.log("Right Shift (>>):", bit1 >> 1); // ? Output: 2 (In binary: 0010)
+
+// ? How binary numbers work:
+// Binary is a base-2 number system that uses only two digits: 0 and 1.
+// Each digit in a binary number is called a bit, and the value of each bit is determined by its 
+// position in the number.
+// 2^0 = 1, 2^1 = 2, 2^2 = 4, 2^3 = 8, and so on. To convert a binary number to decimal, you can
+// multiply each bit by its corresponding power of 2 and sum the results. For example, the binary 
+// number 1011 can be converted to decimal as follows:
+// (1 * 2^3) + (0 * 2^2) + (1 * 2^1) + (1 * 2^0) = 8 + 0 + 2 + 1 = 11 in decimal.
+// To convert numbers to binary, you can repeatedly divide the number by 2 and track the remainders. 
+// For example, to convert the decimal number 13 to binary:
+// 13 / 2 = 6 remainder 1
+// 6 / 2 = 3 remainder 0
+// 3 / 2 = 1 remainder 1
+// 1 / 2 = 0 remainder 1
+// Reading the remainders from bottom to top gives us the binary representation of 13, which is 1101.
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -293,6 +333,26 @@ console.log("Greater than (>):", num6 > 10); // ? Output: true
 console.log("Less than (<):", num6 < 20); // ? Output: true
 console.log("Greater than or equal to (>=):", num6 >= 15); // ? Output: true
 console.log("Less than or equal to (<=):", num6 <= 15); // ? Output: true
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! OPERATOR PRECEDENCE:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Operator precedence determines the order in which operators are evaluated in an expression.
+// For example, in the expression:
+let result = 10 + 5 * 2; 
+// The multiplication operator (*) has higher precedence than the addition operator (+).
+console.log("Result of 10 + 5 * 2:", result); 
+// ? Output: 20 
+// (because 5 * 2 is evaluated first, resulting in 10 + 10)
+
+// ? To change the order of evaluation, you can use parentheses:
+let result2 = (10 + 5) * 2;
+console.log("Result of (10 + 5) * 2:", result2);
+// ? Output: 30
+// (because 10 + 5 is evaluated first, resulting in 15 * 2)
 
 // ! ------------------------------------------------------------------------------------------------
 
