@@ -673,8 +673,39 @@ switch (day) { // Evaluate the expression (day) and compare it to the case label
     default: // The default case is executed if none of the above cases match the value of day.
         console.log("Invalid day");
 }   
-
 // ? Output: Today is Monday
+
+// ? Example 2: Using switch statement to check if an apple is a fruit or a vegetable:
+
+const fruits = "Apple";
+switch (fruits) {
+    case "Apple":
+    case "Banana":
+    case "Cherry":
+        console.log("All are fruits");
+        break;
+    case "Carrot":
+    case "Broccoli":
+    case "Spinach":
+        console.log("All are vegetables");
+        break;
+}
+// ? Output: All are fruits
+
+// ? Example 3: Using switch statement with a condition (switching on true):
+
+const score = 10;
+switch (true) {
+    case score < 5:
+        console.log("Score is less than 5");
+        break;
+    case (score >= 5 && score <= 10):
+        console.log("Score is between 5 and 10");
+        break;
+    default:
+        console.log("Score is greater than 10");
+}
+// ? Output: Score is between 5 and 10
 
 // ! ------------------------------------------------------------------------------------------------
 
@@ -698,6 +729,17 @@ for (let i = 0; i < 5; i++) { // Initialisation: let i = 0; Condition: i < 5; In
 }
 
 // ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4
+
+// ? Example of for loop for factorial calculation:
+let num15 = 5;
+let factorial = 1;
+for (let i = 1; i <= num15; i++) { // Initialisation: let i = 1; Condition: i <= num15; Increment: i++
+    factorial *= i; // factorial = factorial * i
+}
+// Factorial of 5 is calculated as 1 * 2 * 3 * 4 * 5 = 120
+console.log("Factorial of", num15, "is", factorial);
+
+// ? Output: Factorial of 5 is 120
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -736,6 +778,25 @@ for (let char of str3) { // char will take the value of each character in str3
 
 // ? ------------------------------------------------------------------------------------------------
 
+// ? forEach loop:
+// The forEach loop is a method available on arrays that allows you to execute a provided function 
+// once for each array element.
+
+const arr3 = [1, 2, 3, 4, 5];
+arr3.forEach(function(value) { // The function is called for each element (value) in arr3
+    console.log("Value:", value);
+});
+// ? Output: Value: 1, Value: 2, Value: 3, Value: 4, Value: 5
+
+function f1(value, index) {
+    console.log(value, index);
+}
+
+arr3.forEach(f1);
+// ? Output: 1 0, 2 1, 3 2, 4 3, 5 4 (value and index of each element in arr3)
+
+// ? ------------------------------------------------------------------------------------------------
+
 // ? while loop:
 
 // The while loop is used to repeat a block of code as long as a specified condition is true.
@@ -745,6 +806,17 @@ while (j < 5) { // Condition: j < 5
     j++; // Increment: j++
 }
 // ? Output: Iteration: 0, Iteration: 1, Iteration: 2, Iteration: 3, Iteration: 4
+
+// Example of while loop for calculating the sum of n natural numbers:
+let n = 5;
+let sum = 0;
+let i = 1;
+while (i <= n) { // Condition: i <= n
+    sum += i; // sum = sum + i
+    i++; // Increment: i++
+}
+console.log("Sum of first", n, "natural numbers is", sum);
+// ? Output: Sum of first 5 natural numbers is 15
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -766,6 +838,14 @@ do {
     m++;
 } while (m < 10);
 // ? Output: This will be printed at least once, even though the condition is false.
+
+// Example of do-while loop for user input validation:
+// let userInput;
+// do {
+//     userInput = prompt("Please enter a number between 1 and 10:");
+// } while (userInput < 1 || userInput > 10);  
+// This loop will continue to prompt the user until they enter a valid number between 1 and 10.
+// ? This code should be run in a browser console.
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -794,6 +874,18 @@ for (let p = 0; p < 10; p++) {
 }
 
 // ? Output: Iteration: 1, Iteration: 3, Iteration: 5, Iteration: 7, Iteration: 9
+
+// ? Another example of using continue to skip certain iterations:
+let iter = 0;
+while (iter < 10) {
+    iter++;
+    if (iter === 3 || iter === 6) { // When iter is 3 or 6, the continue statement will skip the rest of the loop body.
+        continue;
+    }
+    console.log("Iteration:", iter);
+} 
+// ? Output: Iteration: 1, Iteration: 2, Iteration: 4, Iteration: 5, Iteration: 7, Iteration: 8, 
+// ? Iteration: 9, Iteration: 10
 
 // ? ------------------------------------------------------------------------------------------------
 
@@ -828,3 +920,502 @@ for (let i = 0, j = 0; i <= 6 && j <= 10; i++, j++) {
 // i: 5, j: 5
 // i: 6, j: 6
 
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT FUNCTIONS:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Functions are reusable blocks of code that perform a specific task. They can take parameters,
+// ? perform operations, and return a value. Functions can be defined using function declarations,
+// ? function expressions, or arrow functions.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function declarations:
+// A function declaration defines a named function that can be called before it is defined in the code
+// due to hoisting. 
+
+// ? Syntax for a function declaration:
+// function functionName(parameters) {
+//     // function body
+// }
+
+// ? Example of a function declaration:
+function greet(name) { // name is a parameter of the greet function
+    return `Hello, ${name}!`; // The function returns a greeting message using the name parameter.
+} 
+console.log(greet("Alice")); // ? Output: Hello, Alice!
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function expressions:
+// A function expression defines a function as part of a larger expression, such as an assignment.
+// Function expressions can be anonymous (without a name) or named. They are not hoisted, so they
+// cannot be called before they are defined in the code. 
+
+// ? Syntax for a function expression:
+// const functionName = function(parameters) {
+//     // function body
+// }
+
+// ? Example of a function expression:
+const greet2 = function(name) {
+    return `Hi, ${name}!`;
+}
+console.log(greet2("Bob")); // ? Output: Hi, Bob!
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Arrow functions:
+// Arrow functions provide a shorter syntax for writing function expressions and do not have their own
+// this, arguments, or super. They are often used for writing concise functions, especially in 
+// situations where a function is used as a callback.
+
+// ? Syntax of an arrow function:
+// const functionName = (parameters) => {
+//     // function body
+// }
+
+// ? Example of an arrow function:
+const greet3 = (name) => {
+    return `Hey, ${name}!`;
+}
+console.log(greet3("Charlie")); // ? Output: Hey, Charlie!
+
+// ? Example of where to use the arrow function:
+const obj3 = {
+    name: "David",
+    showName: function() {
+        setTimeout(() => { // Using an arrow function to preserve the value of this
+            console.log(this.name); // ? Output: David 
+            // because the arrow function does not have its own this, it uses the this value from 
+            // the enclosing context, which is the obj)
+        }, 1000);
+    }
+}
+
+obj3.showName();
+// ? Output: David 
+// (after 1 second)
+
+// ? Example 2: Using an arrow function for a simple one-liner:
+// Instead of writing a function expression like this:
+const nums = [1, 2, 3, 4, 5];
+for (const i of nums) {
+    console.log(i * 2); // ? Output: 2, 4, 6, 8, 10 (1 value per line)
+}
+
+// You can use an arrow function with forEach to achieve the same result in a more concise way:
+nums.forEach(num => console.log(num * 2)); // ? Output: 2, 4, 6, 8, 10 (1 value per line)
+
+// Or you can use an arrow function with map to create a new array with the results:
+const doubled = nums.map(num => num * 2);
+console.log(doubled); // ? Output: [2, 4, 6, 8, 10]
+
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example of a function with multiple parameters:
+function add(a, b) {
+    return a + b;
+}
+console.log(add(5, 10)); // ? Output: 15
+
+// ? Example of a function that returns a value:
+function square(x) {
+    return x * x;
+}
+console.log(square(4)); // ? Output: 16
+
+// ? Example of a function that does not return a value (void function):
+function logMessage(message) {
+    console.log("Log:", message); // Logs the message to the console but does not return a value.
+}
+logMessage("This is a log message."); // ? Output: Log: This is a log message.
+
+// ? Example of a function that returns multiple values using an array:
+function getValues() {
+    return [1, "hello", true]; // Returns an array containing a number, a string, and a boolean.
+}
+
+const [number1, string1, boolean1] = getValues()
+console.log(number1, string1, boolean1); // ? Output: 1, hello, true
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT ARGS AND PARAMETERS:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Arguments are the actual values passed to a function when it is called, while parameters are the
+// ? variables defined in the function declaration that receive the values of the arguments when the 
+// ? function is invoked.
+
+function multiply(x, y) { // x and y are parameters of the multiply function
+    return x * y;
+}
+console.log(multiply(5, 3)); // ? Output: 15 (5 and 3 are arguments passed to the multiply function)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Positional arguments vs. keyword arguments (named arguments):
+// In JavaScript, functions typically use positional arguments, where the order of the arguments
+// matters. However, you can also use an object to simulate named arguments, which allows you to 
+// pass arguments in any order.
+
+// Example of a function using positional arguments:
+function Profile(name, age, place) {
+    console.log(`The name is ${name}, age is ${age}, and place is ${place}.`);
+}
+Profile("Alice", 30, "New York"); // Positional arguments
+console.log("Using positional arguments:");
+
+// ? Output: The name is Alice, age is 30, and place is New York.
+
+Profile({ age: 30, place: "New York", name: "Alice" }); // Named arguments using an object
+// ? Output: The name is [object Object], age is undefined, and place is undefined.
+// This does not work as intended because the function expects positional arguments, not an object.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Keyword arguments can be simulated by using an object as a parameter and destructuring it:
+function Profile2(name, age, place) {
+    console.log(`The name is ${name}, age is ${age}, and place is ${place}.`);
+}
+Profile((age = 56), (place = "New York"), (name = "Alice")); 
+// This will not work as intended because it is still using positional arguments.
+// ? Output: The name is 56, age is New York, and place is Alice.
+
+// ? Destructuring the object parameter to simulate named arguments
+function Profile3({ name, age, place }) {
+    console.log(`The name is ${name}, age is ${age}, and place is ${place}.`);
+}
+
+// ? Named arguments using an object with destructuring
+Profile3({ age: 30, place: "New York", name: "Alice" });
+// ? Output: The name is Alice, age is 30, and place is New York. (This works as intended)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Default arguments:
+// Default arguments allow you to specify default values for function parameters. If an argument is
+// not provided when the function is called, the default value will be used.
+
+function greet4(name = "Guest") { // name has a default value of "Guest"
+    return `Hello, ${name}!`;
+}
+console.log(greet4()); // ? Output: Hello, Guest!
+console.log(greet4("Alice")); // ? Output: Hello, Alice!
+
+// ? Example of a function with multiple default arguments:
+function createProfile(name = "Unknown", age = 0, city = "Unknown") {
+    return `Name: ${name}, Age: ${age}, City: ${city}`;
+}
+console.log(createProfile()); // ? Output: Name: Unknown, Age: 0, City: Unknown
+console.log(createProfile("Bob", 25)); // ? Output: Name: Bob, Age: 25, City: Unknown
+console.log(createProfile("Charlie", 30, "London")); // ? Output: Name: Charlie, Age: 30, City: London
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Variable length arguments (rest parameters):
+// Rest parameters allow you to represent an indefinite number of arguments as an array.
+
+function sum2(...numbers) { // ...numbers is a rest parameter that collects all arguments into an array
+    return numbers.reduce((total, num) => total + num, 0); // Sums all the numbers in the array
+    // The reduce() method takes a callback function that is applied to each element of the array,
+    // accumulating the result in the total variable, starting with an initial value of 0.
+}
+console.log(sum2(1, 2, 3, 4, 5)); // ? Output: 15
+
+// ? Function that takes a variable number of arguments and returns the maximum value:
+function max(...values) { // ...values is a rest parameter that collects all arguments into an array
+    return Math.max(...values); // Uses the spread operator (...) to pass the array to Math.max()
+    // The Math.max() function returns the largest of the given numbers.
+}
+console.log(max(10, 20, 5, 15)); // ? Output: 20
+
+// ? Function that takes a variable number of arguments and returns the average:
+function average(...nums) {
+    const total = nums.reduce((sum, num) => sum + num, 0); // Sums all the numbers in the array
+    return total / nums.length; // Returns the average by dividing the total by the number of elements
+}
+console.log(average(10, 20, 30)); // ? Output: 20
+
+// ? Function that takes a variable number of arguments and returns the product:
+function product(...values) {
+    return values.reduce((prod, val) => prod * val, 1); // Multiplies all the numbers in the array
+}
+console.log(product(2, 3, 4)); // ? Output: 24
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function that takes a variable number of arguments and logs them:
+function about(...a) {
+    for (const i of a) {
+        console.log(i);
+    }
+}
+
+about("Alice", 30, "New York");
+// ? Output:
+// ? Alice
+// ? 30
+// ? New York
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function that takes a variable number of arguments and logs them with a message:
+function about2(...a) {
+    for (const i of a) {
+        console.log("My name is", i);
+    }
+}
+about2("Alice", "Bob", "Charlie");
+// ? Output:
+// ? My name is Alice
+// ? My name is Bob
+// ? My name is Charlie
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function that takes a variable number of arguments along with other parameters:
+function about(age, { name, place }, {email = 'email.com'}, ...a) {
+    for (const i of a) {
+        console.log("My name is", i, age, name, place, email);
+    }
+}
+about(30, { name: "Charlie", place: "London" }, { email: "charlie@example.com" }, "Alice", "Bob", "Charlie");
+// ? Output:
+// ? My name is Alice 30 Charlie London charlie@example.com
+// ? My name is Bob 30 Charlie London charlie@example.com
+// ? My name is Charlie 30 Charlie London charlie@example.com
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT SCOPE:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Scope refers to the accessibility of variables and functions in different parts of your code.
+// ? JavaScript has three types of scope: global scope, function scope, and block scope.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Global scope: Variables declared outside of any function or block are in the global scope and
+// ? can be accessed from anywhere in the code.
+
+let globalVar = "I am a global variable";
+function accessGlobalVar() {
+    console.log(globalVar); // Accessing the global variable from within a function
+}
+console.log(globalVar); // ? Output: I am a global variable
+accessGlobalVar(); // ? Output: I am a global variable
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Function scope (local scope): Variables declared inside a function are in the function scope 
+// ? and can only be accessed within that function.
+
+function myFunction() {
+    let functionVar = "I am a function (local) variable";
+    console.log(functionVar); // Accessing the function variable from within the function
+}
+myFunction(); // ? Output: I am a function (local) variable
+// console.log(functionVar); // Error because functionVar is not accessible outside the function
+
+function myFunction2() {
+    let abcd = 5;
+    var efgh = 10;
+    console.log("Inside myFunction2, a:", abcd);
+    console.log("Inside myFunction2, b:", efgh);
+}
+myFunction2();
+// ? Output: 
+// ? Inside myFunction2, a: 5
+// ? Inside myFunction2, b: 10
+
+console.log("Outside myFunction2, a:", myFunction2.abcd); 
+// ? Outside myFunction2, a: undefined
+
+console.log("Outside myFunction2, b:", myFunction2.efgh); 
+// ? Outside myFunction2, b: undefined
+
+// console.log(abcd) // Error because abcd is not defined
+// console.log(efgh) // Error because efgh is not defined
+
+// ? Function
+let test_result = 89
+console.log(test_result) // ? Output: 89
+
+function f2() {
+    globalThis.test_result = 8;
+    globalThis.test_result += 3;
+    console.log(globalThis.test_result); // ? Output: 11
+    console.log(test_result); // ? Output: 89 (test_result is now a property of the global object)
+}
+f2(); // ? Output: 11, 89
+console.log(test_result); // ? Output: 89
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Block scope: Variables declared with let or const inside a block (e.g., inside an if statement
+// ? or a for loop) are in the block scope and can only be accessed within that block.
+
+if (3) {
+    let z1 = 'I am a block-scoped variable declared with let';
+}
+
+// console.log(z1); // Error because z1 is not accessible outside the block
+
+for (let i = 0; i < 10; i++) {
+    let dog = 'Dogs'
+    var cat = 'Cats'
+}
+console.log(cat); // ? Output: Cats (cat is declared with var and is function-scoped)
+// console.log(dog); // Error because dog is block-scoped and not accessible outside the for loop
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Lexical scope: Lexical scope refers to the fact that functions are executed using the variable 
+// ? scope of where they were defined, not where they are called. This means that a function can 
+// ? access variables from its own scope and from the scopes of its parent functions.
+
+function outer() {
+    let outerVar = "I am an outer variable";
+    function inner() {
+        let innerVar = "I am an inner variable";
+        console.log(outerVar); // Accessing the outer variable from the inner function
+        console.log(innerVar); // Accessing the inner variable from the inner function
+    }
+    inner(); // Calling the inner function from within the outer function
+}
+outer();
+// ? Output:
+// ? I am an outer variable (accessed from the inner function)
+// ? I am an inner variable  (accessed from the inner function)
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT SELF-INVOKING(CALLING) FUNCTIONS:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Self-invoking functions, also known as Immediately Invoked Function Expressions (IIFE), are
+// ? functions that are executed immediately after they are defined. They are often used to create a 
+// ? new scope and avoid polluting the global namespace.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example of a self-invoking function:
+(function(){
+    let message = "This is a self-invoking function";
+    console.log(message);
+})(); // The parentheses at the end () immediately invoke the function after it is defined.
+// ? Output: This is a self-invoking function
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Self-invoking function that takes parameters:
+(function (name, age) {
+    console.log(`Name: ${name}, Age: ${age}`);
+})("John", 30); // The parentheses at the end () immediately invoke the function with arguments.
+// ? Output: Name: John, Age: 30
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Self-invoking function that returns a value:
+const total = (function (a, b) {
+    return a + b;
+})(5, 10);
+console.log("Total:", total); // ? Output: Total: 15
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Self-invoking function that creates a new scope and has a private variable:
+(function () {
+    let privateVar = "I am a private variable";
+    console.log(privateVar); // Accessing private variable from within the self-invoking function
+})();
+// console.log(privateVar); 
+// Error because privateVar is not accessible outside the self-invoking function
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Self-invoking function that uses objects and `this` keyword:
+let userInfo = (function (name, age) {
+    return {
+        name: name,
+        age: age,
+        getInfo: function() { // Method with function expression to return user information
+            // Using `this` to access the properties of the returned object
+            return `Name: ${this.name}, Age: ${this.age}`;
+            // Can also return `Name: ${name}, Age: ${age}` since name and age are parameters
+            // of the outer function
+        }
+    }
+})("Dave", 25);
+console.log(userInfo.getInfo()); // Calling the getInfo method of the userInfo object
+// ? Output: Name: Dave, Age: 25
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Using an immediately invoked function expression (IIFE) to create a method:
+let userInfo2 = (function (name, age) {
+    return {
+        name: name,
+        age: age,
+        greet:(function() {
+            // Using the name and age parameters from the outer function
+            return `Hello, ${name}! Your age is ${age}`;
+        })(),
+    }
+})("Eve", 28);
+console.log(userInfo2.greet); // Accessing the greet property of the userInfo2 object
+// ? Output: Hello, Eve! Your age is 28
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! JAVASCRIPT OBJECTS:
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? Creating objects from functions without using the `new` keyword:
+function Person() {
+    name = "Sid"
+}
+console.log(Person) // ? Output: [Function: Person]
+console.log(Person.name) // ? Output: Person
+console.log(Person()) // ? Output: undefined 
+// (Person is called as a regular function, not as a constructor)
+console.log(name) // ? Output: Sid 
+// (name is a global variable because it was not declared with var, let, or const)
+
+// ? Creating objects from functions using the `new` keyword:
+function Person2() {
+    this.name = "Sid";
+}
+const personObj = new Person2(); // Using the `new` keyword to create an instance of Person2
+console.log(personObj.name); // ? Output: Sid 
+// (name is a property of the personObj instance)
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Calling function using an object:
+
+function createUser(name, age) {
+    function greet() {
+        // The greet function can access the name parameter from the outer function (lexical scope).
+        return `Hello, ${name}!`;
+    }
+    function getAge() {
+        return `Your age is ${age}`;
+    }
+    return { // Returning an object with methods that can access the name and age parameters
+        greet: greet, // The greet method is assigned the greet function defined inside createUser
+        getAge: getAge 
+    };
+}
+const user = createUser("Kim", 30);
+console.log(user.greet()); // ? Output: Hello, Kim!
+console.log(user.getAge()); // ? Output: Your age is 30
