@@ -1419,3 +1419,63 @@ function createUser(name, age) {
 const user = createUser("Kim", 30);
 console.log(user.greet()); // ? Output: Hello, Kim!
 console.log(user.getAge()); // ? Output: Your age is 30
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ! DOCUMENT OBJECT MODEL (DOM):
+
+// ! ------------------------------------------------------------------------------------------------
+
+// ? The Document Object Model (DOM) is a programming interface for web documents. It represents the
+// ? structure of a document as a tree of objects, allowing developers to manipulate the content,
+// ? structure, and style of a web page using JavaScript. The DOM provides methods and properties to
+// ? access and modify elements, attributes, and events in the document.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Accessing DOM elements:
+
+// ? getElementById() method:
+// The getElementById() method is used to access an element in the DOM by its unique id attribute.
+// Using getElementById() to change the text content of an element with id "myElement":
+// ! const element = document.getElementById("myElement");
+// ! element.textContent = "New text content!";
+// ? This code should be run in a browser console where an element with id "myElement" exists.
+
+// ? getElementsByClassName() method:
+// The getElementsByClassName() method is used to access elements in the DOM by their class name
+// Using getElementsByClassName() to change the background color of elements with class "myClass":
+// ! const element2 = document.getElementsByClassName("myClass");
+// ! for (let i = 0; i < element2.length; i++) {
+// !     element2[i].style.backgroundColor = "yellow";
+// ! }
+// ? This code should be run in a browser console where elements with class "myClass" exist.
+
+// ? querySelector() method:
+// The querySelector() method is used to access the first element in the DOM that matches a 
+// specified CSS selector
+// Using querySelector() to change the font size of the first element with class "myClass":
+// ! const element3 = document.querySelector(".myClass");
+// ! element3.style.fontSize = "20px";
+// ? This code should be run in a browser console where an element with class "myClass" exists.
+
+// ? querySelectorAll() method:
+// The querySelectorAll() method is used to access all elements in the DOM that match a 
+// specified CSS selector
+// Using querySelectorAll() to change the text color of all elements with class "myClass":
+// ! const elements4 = document.querySelectorAll(".myClass");
+// ! elements4.forEach(element => {
+// !     element.style.color = "red";
+// ! });
+// ? This code should be run in a browser console where elements with class "myClass" exist.
+
+// ? getElementsByTagName() method:
+// The getElementsByTagName() method is used to access elements in the DOM by their tag name
+// Using getElementsByTagName() to change the border of all <p> elements:
+// !const elements5 = document.getElementsByTagName("p");
+// !for (let i = 0; i < elements5.length; i++) {
+// !    elements5[i].style.border = "1px solid black";
+// !}
+// ? This code should be run in a browser console where <p> elements exist.
+
+// ? ------------------------------------------------------------------------------------------------
