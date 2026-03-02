@@ -1042,6 +1042,92 @@ function getValues() {
 const [number1, string1, boolean1] = getValues()
 console.log(number1, string1, boolean1); // ? Output: 1, hello, true
 
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Ways to call a functiton:
+
+// 1. Directly by its name:
+function greet5(name) {
+    return `Hello, ${name}!`;
+}
+console.log(greet5("Eve")); // ? Output: Hello, Eve!
+
+// 2. Using a function expression:
+const greet6 = function(name) {
+    return `Hi, ${name}!`;
+}
+console.log(greet6("Frank")); // ? Output: Hi, Frank!
+
+// 3. Using an arrow function:
+const greet7 = (name) => {
+    return `Hey, ${name}!`;
+}
+console.log(greet7("Grace")); // ? Output: Hey, Grace!
+
+// 4. Using the call() method:
+function greet8(greeting, name) {
+    return `${greeting}, ${name}!`;
+}
+console.log(greet8.call(null, "Welcome", "Heidi")); // ? Output: Welcome, Heidi!
+
+// 5. Using the apply() method:
+console.log(greet8.apply(null, ["Greetings", "Ivan"])); // ? Output: Greetings, Ivan!
+
+// 6. Using a constructor object:
+function Person3(name) {
+    this.name = name;
+    this.greet = function() {
+        return `Hello, my name is ${this.name}!`;
+    }
+}
+const person3 = new Person3("Alice");
+console.log(person3.greet()); // ? Output: Hello, my name is Alice!
+
+// 7. Using an IIFE (Immediately Invoked Function Expression):
+(function(name) {
+    console.log(`Hello, ${name}!`);
+})("Jack"); // ? Output: Hello, Jack!
+
+// 8. Nested function calls:
+function outerFunction(name) {
+    function innerFunction() {
+        return `Hello, ${name}!`;
+    }
+    return innerFunction(); // Calls the inner function and returns its result.
+}
+console.log(outerFunction("Karen")); // ? Output: Hello, Karen!
+
+// 9. Accessing single nested function:
+function f1() {
+    function f2() {
+        return "Hello from f2!";
+    }
+    function f3() {
+        return "Hello from f3!";
+    }
+    return { f2, f3 }; // Returns an object containing references to the inner functions f2 and f3,
+    //  allowing them to be accessed from outside f1.
+}
+
+// Calls f1 and stores the returned object (f2 and f3) in the variable userGreet.
+const userGreet = f1();
+console.log(userGreet.f2()); // ? Output: Hello from f2!
+console.log(userGreet.f3()); // ? Output: Hello from f3!
+
+
+// ? Example of using a constructor function to create an object with methods:
+function f4() {
+    this.f5 = function() {
+        return "Hello from f5!";
+    }
+    this.f6 = function() {
+        return "Hello from f6!";
+    }
+}
+const userGreet2 = new f4(); // Creates a new instance of f4, which has methods f5 and f6.
+console.log(userGreet2.f5()); // ? Output: Hello from f5!
+console.log(userGreet2.f6()); // ? Output: Hello from f6!
+
 // ! ------------------------------------------------------------------------------------------------
 
 // ! JAVASCRIPT ARGS AND PARAMETERS:
@@ -1435,12 +1521,16 @@ console.log(user.getAge()); // ? Output: Your age is 30
 
 // ? Accessing DOM elements:
 
+// ? ------------------------------------------------------------------------------------------------
+
 // ? getElementById() method:
 // The getElementById() method is used to access an element in the DOM by its unique id attribute.
 // Using getElementById() to change the text content of an element with id "myElement":
 // ! const element = document.getElementById("myElement");
 // ! element.textContent = "New text content!";
 // ? This code should be run in a browser console where an element with id "myElement" exists.
+
+// ? ------------------------------------------------------------------------------------------------
 
 // ? getElementsByClassName() method:
 // The getElementsByClassName() method is used to access elements in the DOM by their class name
@@ -1451,6 +1541,8 @@ console.log(user.getAge()); // ? Output: Your age is 30
 // ! }
 // ? This code should be run in a browser console where elements with class "myClass" exist.
 
+// ? ------------------------------------------------------------------------------------------------
+
 // ? querySelector() method:
 // The querySelector() method is used to access the first element in the DOM that matches a 
 // specified CSS selector
@@ -1458,6 +1550,8 @@ console.log(user.getAge()); // ? Output: Your age is 30
 // ! const element3 = document.querySelector(".myClass");
 // ! element3.style.fontSize = "20px";
 // ? This code should be run in a browser console where an element with class "myClass" exists.
+
+// ? ------------------------------------------------------------------------------------------------
 
 // ? querySelectorAll() method:
 // The querySelectorAll() method is used to access all elements in the DOM that match a 
@@ -1469,6 +1563,8 @@ console.log(user.getAge()); // ? Output: Your age is 30
 // ! });
 // ? This code should be run in a browser console where elements with class "myClass" exist.
 
+// ? ------------------------------------------------------------------------------------------------
+
 // ? getElementsByTagName() method:
 // The getElementsByTagName() method is used to access elements in the DOM by their tag name
 // Using getElementsByTagName() to change the border of all <p> elements:
@@ -1479,3 +1575,208 @@ console.log(user.getAge()); // ? Output: Your age is 30
 // ? This code should be run in a browser console where <p> elements exist.
 
 // ? ------------------------------------------------------------------------------------------------
+
+// ? Modifying DOM elements:
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Difference between innerHTML, innerText, and textContent:
+// The innerHTML property allows you to get or set the HTML content of an element, including any 
+// nested elements. The innerText property allows you to get or set the visible text content of an 
+// element, while the textContent property allows you to get or set the text content of an element, 
+// including hidden text and text from nested elements.
+
+// Using innerHTML to change the content of an element with id "myElement":
+// ! const element6 = document.getElementById("myElement");
+// ! element6.innerHTML = "<strong>Bold text</strong>";
+// ? This code should be run in a browser console where an element with id "myElement" exists.
+
+// Using innerText to change the visible text content of an element with id "myElement":
+// ! const element7 = document.getElementById("myElement");
+// ! element7.innerText = "Visible text only!";
+// ? This code should be run in a browser console where an element with id "myElement" exists.
+
+// Using textContent to change the text content of an element with id "myElement":
+// ! const element8 = document.getElementById("myElement");
+// ! element8.textContent = "Text content including hidden text!";
+// ? This code should be run in a browser console where an element with id "myElement" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? onClick event handler:
+// The onClick event handler is used to execute a function when an element is clicked. You can 
+// assign a function to the onClick property of an element to specify what should happen when 
+// the element is clicked.
+
+// Using onClick to change the text of an element with id "myButton" when it is clicked:
+// ! const button = document.getElementById("myButton");
+// ! button.onclick = function() {
+// !     button.textContent = "Button clicked!";
+// ! }
+// ? This code should be run in a browser console where an element with id "myButton" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example: changing the background colour of an element with id "myDiv" when it is clicked:
+// ! const div = document.getElementById("myDiv");
+// ! div.onclick = function() {
+// !     div.style.backgroundColor = "lightblue";
+// ! }
+// ? This code should be run in a browser console where an element with id "myDiv" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 2: changing multiple colours of an element with id "myDiv" when it is clicked:
+// ! let colours = ["lightblue", "lightgreen", "lightpink", "lightyellow"];
+// ! let index = 0;
+
+// ! function changeColours() {
+// !     document.body.style.backgroundColor = colours[index]; // Set the initial background color
+// !     index += 1; // Increment the index to point to the next color
+// !     console.log("Current color:", colours[index - 1]); // Log the current color to the console
+// !     if (index >= colours.length) { // If the index exceeds the array length, reset it to 0
+// !         index = 0;
+// !     }
+
+// ? This code should be run in a browser console where an element with id "myDiv" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 3: Using functions to increase or decrease a counter when buttons are clicked:
+// ! let counter = 0;
+// ! function increaseCounter() {
+// !     counter ++; // Increment the counter by 1
+// !     // Update the counter display in the DOM
+// !     document.getElementById('counterDisplay').innerText = counter;
+// ! }
+
+// ! function decreaseCounter() {
+// !     counter --; // Decrement the counter by 1
+// !     // Update the counter display in the DOM
+// !     document.getElementById('counterDisplay').innerText = counter;
+// ! }
+
+// ? This code should be run in a browser console where elements with id "counterDisplay", 
+// ? "increaseButton", and "decreaseButton" exist.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 4: Showing and hiding a password input field when a button is clicked:
+// ! function togglePassword() {
+// !     let passwordInput = document.getElementById("passwordInput");
+// !     let button = document.getElementById("toggleButton");
+// !     if (passwordInput.type === "password") {
+// !         passwordInput.type = "text"; // Change the input type to text to show the password
+// !         button.innerHTML = "Hide"; // Update the button text to indicate the new action    
+// !     } else {
+// !         passwordInput.type = "password"; // Change the input type back to password to hide it
+// !         button.innerHTML = "Show "; // Update the button text to indicate the new action
+// !     }
+// ! }
+// ? This code should be run in a browser console where elements with id "passwordInput" and 
+// ? "toggleButton" exist.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? DOM Events:
+// DOM events are actions or occurrences that happen in the web page, such as user interactions 
+// (clicks, mouse movements, keyboard input) or changes to the document (loading, resizing). 
+// JavaScript can respond to these events by attaching event listeners to elements in the DOM.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? addEventListener() method:
+// The addEventListener() method is used to attach an event handler to an element without 
+// overwriting existing event handlers. It allows you to specify the type of event to listen for and
+// the function to execute when that event occurs.
+
+// ? Syntax of addEventListener():
+// element.addEventListener(eventType, eventHandlerFunction);
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Event types:
+
+// "click" - Triggered when an element is clicked.
+// "mouseover" - Triggered when the mouse pointer is moved over an element.
+// "mouseout" - Triggered when the mouse pointer is moved out of an element.
+// "keydown" - Triggered when a key is pressed down.
+// "keyup" - Triggered when a key is released.
+// "submit" - Triggered when a form is submitted.
+// "change" - Triggered when the value of an input element changes.
+// "input" - Triggered when the value of an input element is changed (fires immediately).
+// "load" - Triggered when a resource (like an image) has finished loading.
+// "resize" - Triggered when the window is resized.
+// "scroll" - Triggered when the user scrolls the page or an element.
+// "focus" - Triggered when an element gains focus (e.g., when a user clicks on an input field).
+// "blur" - Triggered when an element loses focus (e.g., when a user clicks away from an input field).
+// "dblclick" - Triggered when an element is double-clicked.
+// "contextmenu" - Triggered when the user right-clicks on an element to open the context menu.
+// There are more event types available in JavaScript, you can also create custom events as needed.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Using addEventListener() to change the text of an element with id "myButton" when it is clicked:
+// ! const button2 = document.getElementById("myButton");
+// ! button2.addEventListener("click", function() {
+// !     button2.textContent = "Button clicked with addEventListener!";
+// ! });
+// ? This code should be run in a browser console where an element with id "myButton" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 2: Showing the time when a button is clicked using addEventListener():
+// ! const timeButton = document.getElementById("timeButton");
+// ! timeButton.addEventListener("click", function() {
+// !     const currentTime = new Date().toLocaleTimeString(); // Get the current time as a string
+// !     alert("Current time: " + currentTime); // Show the current time in an alert box
+// ! });
+// ? This code should be run in a browser console where an element with id "timeButton" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 3: Displaying the current time and updating it every second:
+// ! function displayTime() {
+// !     const currentDate = new Date(); // Create a new Date object to get the current date and time
+// !     const hours = currentDate.getHours(); // Get the current hours
+// !     const minutes = currentDate.getMinutes();
+// !     const seconds = currentDate.getSeconds();
+// !     const timeString = `${hours}:${minutes}:${seconds}`; // Format the time as a string
+// !     document.getElementById("timeDisplay").textContent = timeString;
+// ! }
+// ! setInterval(displayTime, 1000); // Call the displayTime function every second (1000 ms)
+// ? This code should be run in a browser console where an element with id "timeDisplay" exists. 
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 4: Changing element style when mouse enters and leaves an element:
+// ! function changeColourMouseEnter(elementId, colour) {
+// !     const element = document.getElementById(elementId);
+// !     if (element) {
+// !         element.addEventListener("mouseenter", function() {
+// !             // Change the background color when the mouse enters the element
+// !             element.style.backgroundColor = colour;
+// !             element.style.transform = "scale(1.7)"
+// !             element.style.transition = "0.7s ease-in-out"
+// !         });
+// !         element.addEventListener("mouseleave", function() {
+// !             // Reset the background color when the mouse leaves the element
+// !             element.style.backgroundColor = "";
+// !             element.style.transform = "scale(1)"
+// !         });
+// !     }
+// ! }
+// ! // Call the function with the id of the element and the desired colour
+// ! changeColourMouseEnter("myDiv", "lightblue");
+// ? This code should be run in a browser console where an element with id "myDiv" exists.
+
+// ? ------------------------------------------------------------------------------------------------
+
+// ? Example 4: Using querySelector() to select an element and add an event listener to it:
+// ! const myElement = document.querySelector("#myElement"); // Select the element with id "myElement"
+// ! if (myElement) {
+// !     myElement.addEventListener("click", function() {
+// !         myElement.style.color = "red"; // Change the text color to red when the element is clicked
+// !     });
+// ! }
+// ? This code should be run in a browser console where an element with id "myElement" exists.
